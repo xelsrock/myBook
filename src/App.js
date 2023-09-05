@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import './scss/app.scss';
+
+import Header from './components/Header/Header';
+import CardBook from './components/CardBook/CardBook';
+import LoadButton from './components/LoadButton/LoadButton';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="wrapper">
+        <Header />
+        <h3 className='result'>Found 443 results</h3>
+        <div className="content">
+          <CardBook />
+          <CardBook />
+          <CardBook />
+          <CardBook />
+        </div>
+        <LoadButton/>
+      </div>
     </div>
   );
 }

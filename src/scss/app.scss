@@ -1,0 +1,32 @@
+.App {
+  font-family: 'Nunito', Roboto, system-ui, Tahoma, sans-serif;
+}
+
+.wrapper {
+  padding: 20px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 11px;
+  grid-row-gap: 30px;
+  margin-bottom: 30px;
+
+  @media (max-width: 1400px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 1260px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 730px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.result {
+  text-align: center;
+}

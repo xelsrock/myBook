@@ -1,0 +1,27 @@
+.root {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input {
+  width: 400px;
+  padding: 10px 25px;
+  border-radius: 15px;
+  border: 3px solid rgba(0, 0, 0, 0.5);
+  font-size: 22px;
+
+  &:focus {
+    border: 3px solid rgba(0, 0, 0, 0.6);
+  }
+}
+
+.searchIcon {
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  width: 18px;
+  height: 18px;
+  opacity: 0.5;
+  cursor: pointer;
+}
