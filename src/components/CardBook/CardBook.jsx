@@ -2,20 +2,20 @@ import React from 'react';
 
 import styles from './CardBook.module.scss';
 
-const CardBook = () => {
+const CardBook = ({ volumeInfo }) => {
   return (
     <div className={styles.root}>
       <div className={styles.cardImg}>
         <img
-          src="http://books.google.com/books/content?id=_oG_iTxP1pIC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"
-          alt=""
+          src={volumeInfo.imageLinks?.smallThumbnail || '../img/bookNotFound.jpg'}
+          alt={'Books cover'}
         />
       </div>
       <a href="#" className={styles.categories}>
-        Categories
+        {volumeInfo.categories || 'Сategory not found'}
       </a>
-      <h3 className={styles.title}>Lorem ipsum dolor sit amet.</h3>
-      <span className={styles.author}>Lorem, ipsum dolor.</span>
+      <h3 className={styles.title}>{volumeInfo.title}</h3>
+      <span className={styles.author}>{volumeInfo.authors}</span>
     </div>
   );
 };
