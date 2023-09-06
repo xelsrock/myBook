@@ -13,6 +13,9 @@ const booksSlice = createSlice({
     setItems(state, action) {
       state.bookItems = action.payload;
     },
+    setTotalItems(state, action) {
+      state.totalItems = action.payload;
+    },
   },
 });
 

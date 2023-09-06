@@ -1,12 +1,27 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import styles from './Search.module.scss';
+import { setSearchValue } from '../../redux/slices/filterSlice';
 
 const Search = () => {
+  const dispatch = useDispatch();
+
+  const [value, setValue] = React.useState('');
+
+  const setInputClick = () => {
+   dispatch(setSearchValue(value))
+  };
+
+  const setInputChange = (event) => {
+    setValue(event.target.value);
+  };
+
   return (
     <div className={styles.root}>
-      <input className={styles.input} type="text" placeholder="Book title..." />
+      <input onChange={setInputChange} value={value} className={styles.input} type="text" placeholder="Book title..." />
       <svg
+        onClick={setInputClick}
         className={styles.searchIcon}
         xmlns="http://www.w3.org/2000/svg"
         height="1em"
