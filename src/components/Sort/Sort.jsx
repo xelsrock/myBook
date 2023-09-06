@@ -1,17 +1,25 @@
-import React from 'react'
+import React from 'react';
 
 import styles from './Sort.module.scss';
 
-const Sort = () => {
+const sort = ['relevance', 'newest'];
+
+const Sort = ({ onChangeSort }) => {
   return (
     <div className={styles.root}>
       <span className={styles.title}>Sort by</span>
-      <select className={styles.sort} name="sort">
-        <option value="relevance">relevance</option>
-        <option value="newest">newest</option>
+      <select
+        onChange={(event) => onChangeSort(event.target.value)}
+        className={styles.sort}
+        name="sort">
+        {sort.map((item, i) => (
+          <option key={i} value={item}>
+            {item}
+          </option>
+        ))}
       </select>
     </div>
-  )
-}
+  );
+};
 
-export default Sort
+export default Sort;
