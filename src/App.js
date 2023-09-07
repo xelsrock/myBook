@@ -6,32 +6,30 @@ import './scss/app.scss';
 import Header from './components/Header/Header';
 import CardBook from './components/CardBook/CardBook';
 import LoadButton from './components/LoadButton/LoadButton';
-import { selectBooksData, setItems, setTotalItems } from './redux/slices/booksSlice';
-import { API_KEY } from './API/ApiKey';
+import {
+  fetchBooksAsync,
+  selectBooksData,
+  setItems,
+  setTotalItems,
+} from './redux/slices/booksSlice';
 import { selectFilter } from './redux/slices/filterSlice';
 
 function App() {
   const dispatch = useDispatch();
-  const { bookItems, totalItems } = useSelector(selectBooksData);
+  const { bookItems, totalItems, status } = useSelector(selectBooksData);
 
   const { searchValue, category, sortValue } = useSelector(selectFilter);
 
-  const fetchBooks = async () => {
+  const getBooks = () => {
     const categories = `${category !== 'all' ? `+subject:${category}` : ''}`;
 
-    await fetch(
-      `https://www.googleapis.com/books/v1/volumes/?q=intitle:${searchValue}${categories}&orderBy=${sortValue}&maxResults=30&key=${API_KEY}`,
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        dispatch(setItems(data.items));
-        dispatch(setTotalItems(data.totalItems));
-      })
-      .catch((error) => alert('Произошла ошибка при получении данных...('));
+    dispatch(fetchBooksAsync({ searchValue, categories, sortValue }));
+
+    dispatch(setTotalItems());
   };
 
   React.useEffect(() => {
-    fetchBooks();
+    getBooks();
   }, [searchValue, category, sortValue]);
 
   return (
