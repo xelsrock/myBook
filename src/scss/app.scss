@@ -27,6 +27,78 @@
   }
 }
 
+.button {
+  background-color: #dfe6ed;
+  padding: 10px 20px;
+  font-size: 20px;
+  color: #55677d;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: 0;
+  border: none;
+  transition: color .2s linear, background-color .2s linear;
+
+  &:hover {
+    color: #dfe6ed;
+    background-color: #55677d;
+  }
+}
+
 .result {
   text-align: center;
 }
+
+.book__page {
+  display: flex;
+  margin-top: 40px;
+}
+
+.book__img {
+  display: flex;
+  flex-basis: 40%;
+  background-color: #e8e7e6;
+
+  img {
+    margin: auto;
+    width: 400px;
+    height: 500px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+}
+
+.book__content {
+  position: relative;
+  padding: 50px;
+  flex-basis: 60%;
+}
+
+.book__categories {
+  font-size: 22px;
+  opacity: 0.5;
+}
+
+.book__authors {
+  font-size: 22px;
+  text-decoration: underline;
+  opacity: 0.5;
+}
+
+.book__title {
+  font-size: 30px;
+}
+
+.book__description {
+  font-size: 22px;
+  padding: 20px;
+  border: 1px solid rgb(0, 0, 0, 0.3);
+  min-height: 200px;
+}
+
+.book__button {
+  position: absolute;
+  bottom: 0;
+  right: 30px;
+  justify-content: end;
+}
+
+

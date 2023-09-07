@@ -1,23 +1,28 @@
 .root {
-  width: 200px;
+  width: 250px;
   background-color: #e8e7e6;
   padding: 20px 20px 30px;
 }
 
 .cardImg {
+  padding: 20px;
   text-align: center;
 
   img {
-    width: 128px;
-    height: 193px;
-    padding: 20px;
+    width: 168px;
+    height: 233px;
     background-repeat: no-repeat;
-    
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: transform .1s ease-in-out;
+
+    &:hover {
+      transform: translateY(-15px);
+    }
   }
 }
 
 .categories {
-  color: inherit;
+  text-decoration: underline;
 }
 
 .title {

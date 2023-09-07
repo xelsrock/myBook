@@ -1,48 +1,20 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
 
 import './scss/app.scss';
 
-import Header from './components/Header/Header';
-import CardBook from './components/CardBook/CardBook';
-import LoadButton from './components/LoadButton/LoadButton';
-import {
-  fetchBooksAsync,
-  selectBooksData,
-  setItems,
-  setTotalItems,
-} from './redux/slices/booksSlice';
-import { selectFilter } from './redux/slices/filterSlice';
+import Home from './pages/Home';
+import MainLayout from './layouts/MainLoyout';
+import BookPage from './pages/BookPage';
 
 function App() {
-  const dispatch = useDispatch();
-  const { bookItems, totalItems, status } = useSelector(selectBooksData);
-
-  const { searchValue, category, sortValue } = useSelector(selectFilter);
-
-  const getBooks = () => {
-    const categories = `${category !== 'all' ? `+subject:${category}` : ''}`;
-
-    dispatch(fetchBooksAsync({ searchValue, categories, sortValue }));
-
-    dispatch(setTotalItems());
-  };
-
-  React.useEffect(() => {
-    getBooks();
-  }, [searchValue, category, sortValue]);
-
   return (
-    <div className="App">
-      <div className="wrapper">
-        <Header />
-        <h3 className="result">Found {totalItems} results</h3>
-        <div className="content">
-          {bookItems && bookItems.map((obj) => <CardBook key={obj.id} {...obj} />)}
-        </div>
-        <LoadButton />
-      </div>
-    </div>
+    <Routes>
+      <Route path='/' element={<MainLayout />}>
+        <Route path='' element={<Home />}/>
+        <Route path='bookpage' element={<BookPage/>}/>
+      </Route>
+    </Routes>
   );
 }
 

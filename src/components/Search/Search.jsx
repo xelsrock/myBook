@@ -10,7 +10,13 @@ const Search = () => {
   const [value, setValue] = React.useState('');
 
   const setInputClick = () => {
-   dispatch(setSearchValue(value))
+    dispatch(setSearchValue(value));
+  };
+
+  const clickOnSearch = (event) => {
+    if (event.code === 'Enter') {
+      setInputClick();
+    }
   };
 
   const setInputChange = (event) => {
@@ -19,7 +25,14 @@ const Search = () => {
 
   return (
     <div className={styles.root}>
-      <input onChange={setInputChange} value={value} className={styles.input} type="text" placeholder="Book title..." />
+      <input
+        onKeyDown={clickOnSearch}
+        onChange={setInputChange}
+        value={value}
+        className={styles.input}
+        type="text"
+        placeholder="Book title..."
+      />
       <svg
         onClick={setInputClick}
         className={styles.searchIcon}

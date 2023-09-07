@@ -1,11 +1,9 @@
 import React from 'react'
 
-import styles from './LoadButton.module.scss';
-
 const LoadButton = () => {
   return (
-    <button className={styles.btn}>Показать еще</button>
+    <button className='button'>Show more</button>
   )
 }
 
-export default LoadButton
+export default LoadButton;

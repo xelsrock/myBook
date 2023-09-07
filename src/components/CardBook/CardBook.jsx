@@ -1,20 +1,22 @@
 import React from 'react';
 
 import styles from './CardBook.module.scss';
+import { Link } from 'react-router-dom';
 
 const CardBook = ({ volumeInfo }) => {
-  
   return (
     <div className={styles.root}>
       <div className={styles.cardImg}>
-        <img
-          src={volumeInfo.imageLinks?.smallThumbnail || '../img/bookNotFound.jpg'}
-          alt={'Books cover'}
-        />
+        <Link to="bookpage">
+          <img
+            src={volumeInfo.imageLinks?.smallThumbnail || '../img/bookNotFound.jpg'}
+            alt={'Books cover'}
+          />
+        </Link>
       </div>
-      <a href="#" className={styles.categories}>
+      <span className={styles.categories}>
         {volumeInfo.categories ? volumeInfo.categories[0].split(' ')[0] : ''}
-      </a>
+      </span>
       <h3 className={styles.title}>{volumeInfo.title}</h3>
       <span className={styles.author}>{volumeInfo.authors}</span>
     </div>
