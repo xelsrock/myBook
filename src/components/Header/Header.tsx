@@ -21,7 +21,7 @@ const Header: React.FC = () => {
 
   return (
     <header className={styles.header}>
-      <h1>Search for books</h1>
+      <h1 className={styles.title}>Search for books</h1>
       <Search />
       <div className={styles.filter}>
         <Categories onChangeCategory={onChangeCategory}/>

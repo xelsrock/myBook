@@ -25,3 +25,21 @@
   opacity: 0.5;
   cursor: pointer;
 }
+
+@media (max-width: 760px) {
+  .input {
+    width: 200px;
+  }
+}
+
+@media (max-width: 440px) {
+  .input {
+    font-size: 18px;
+    width: 150px;
+  }
+
+  .searchIcon {
+    width: 15px;
+    height: 15px;
+  }
+}

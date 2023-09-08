@@ -17,3 +17,25 @@
   font-weight: 500;
   margin-right: 10px;
 }
+
+@media (max-width: 760px) {
+  .sort {
+    max-width: 130px;
+    font-size: 20px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 440px) {
+  .sort {
+    max-width: 100px;
+    font-size: 16px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+}
