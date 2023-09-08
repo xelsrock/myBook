@@ -1,14 +1,16 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { fetchBooksAsync, selectBooksData, setStartIndex } from '../redux/slices/booksSlice';
 import { selectFilter } from '../redux/slices/filterSlice';
 import CardBook from '../components/CardBook/CardBook';
 import LoadButton from '../components/LoadButton/LoadButton';
 import Skeleton from '../components/CardBook/Skeleton';
+import { useAppDispatch } from '../redux/store';
 
-const Home = () => {
-  const dispatch = useDispatch();
+
+const Home: React.FC = () => {
+  const dispatch = useAppDispatch();
 
   const { bookItems, totalItems, status, startIndex } = useSelector(selectBooksData);
 
@@ -30,7 +32,7 @@ const Home = () => {
   };
 
   const skeleton = [...new Array(10)].map((_, index) => <Skeleton key={index} />);
-  const books = bookItems.map((obj) => <CardBook key={obj.id} {...obj} />);
+  const books = bookItems.map((obj: any) => <CardBook key={obj.id} {...obj} />);
 
   return (
     <>

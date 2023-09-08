@@ -2,9 +2,13 @@ import React from 'react';
 
 import styles from './Categories.module.scss';
 
-const categories = ['all', 'art', 'biography', 'computers', 'history', 'medical', 'poetry'];
+type CategoriesProps = {
+  onChangeCategory: (value: string) => void,
+}
 
-const Categories = ({ onChangeCategory }) => {
+const categories: string[] = ['all', 'art', 'biography', 'computers', 'history', 'medical', 'poetry'];
+
+const Categories: React.FC<CategoriesProps> = ({ onChangeCategory }) => {
   return (
     <div className={styles.root}>
       <span className={styles.title}>Categories</span>

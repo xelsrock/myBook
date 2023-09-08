@@ -8,15 +8,15 @@ import Categories from '../Categories/Categories';
 import styles from './Header.module.scss';
 import { setCategory, setSortValue } from '../../redux/slices/filterSlice';
 
-const Header = () => {
+const Header: React.FC = () => {
   const dispatch = useDispatch();
 
-  const onChangeCategory = (str) => {
-    dispatch(setCategory(str));
+  const onChangeCategory = (value: string) => {
+    dispatch(setCategory(value));
   };
 
-  const onChangeSort = (str) => {
-    dispatch(setSortValue(str));
+  const onChangeSort = (value: string) => {
+    dispatch(setSortValue(value));
   };
 
   return (

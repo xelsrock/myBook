@@ -1,9 +1,21 @@
 import React from 'react';
-
-import styles from './CardBook.module.scss';
 import { Link } from 'react-router-dom';
 
-const CardBook = ({ id, volumeInfo }) => {
+import styles from './CardBook.module.scss';
+
+export type CardBookProps = {
+  id: string,
+  volumeInfo: {
+    imageLinks: {
+      smallThumbnail: string,
+    },
+    categories: string[],
+    title: string,
+    authors: string[],
+  },
+}
+
+const CardBook: React.FC<CardBookProps> = ({ id, volumeInfo }) => {
   return (
     <div className={styles.root}>
       <div className={styles.cardImg}>

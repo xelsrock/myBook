@@ -4,10 +4,20 @@ import axios from 'axios';
 
 import { API_KEY } from '../API/ApiKey';
 
-const BookPage = () => {
+type BookType = {
+  imageLinks: {
+    smallThumbnail: string;
+  };
+  categories: string[];
+  title: string;
+  authors: string[];
+  description: string;
+};
+
+const BookPage: React.FC = () => {
   const { id } = useParams();
 
-  const [book, setBook] = React.useState();
+  const [book, setBook] = React.useState<BookType>();
 
   React.useEffect(() => {
     async function fetchDataBook() {
@@ -35,15 +45,11 @@ const BookPage = () => {
           <div className="book__content">
             <p className="book__categories">{book.categories || ''}</p>
 
-            <p className="book__title">
-              {book.title || ''}
-            </p>
+            <p className="book__title">{book.title || ''}</p>
 
-            <p className="book__authors">{book.authors || ''}</p>
+            <p className="book__authors">{book.authors ? book.authors.map((str) => str + ', ') : ''}</p>
 
-            <p className="book__description">
-              {book.description || ''}
-            </p>
+            <p className="book__description">{book.description || ''}</p>
 
             <Link to="/">
               <button className="button book__button">Back</button>
@@ -51,7 +57,7 @@ const BookPage = () => {
           </div>
         </>
       ) : (
-        'Loading...'
+        <h2>Loading...</h2>
       )}
     </div>
   );

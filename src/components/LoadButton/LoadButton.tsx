@@ -1,6 +1,10 @@
 import React from 'react'
 
-const LoadButton = ({ onLoadMore }) => {
+type LoadButtonProps = {
+  onLoadMore: () => void,
+}
+
+const LoadButton: React.FC<LoadButtonProps> = ({ onLoadMore }) => {
   return (
     <button onClick={onLoadMore} className='button'>Show more</button>
   )

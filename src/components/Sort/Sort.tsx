@@ -2,9 +2,13 @@ import React from 'react';
 
 import styles from './Sort.module.scss';
 
-const sort = ['relevance', 'newest'];
+type SortProps = {
+  onChangeSort: (value: string) => void,
+}
 
-const Sort = ({ onChangeSort }) => {
+const sort: string[] = ['relevance', 'newest'];
+
+const Sort: React.FC<SortProps> = ({ onChangeSort }) => {
   return (
     <div className={styles.root}>
       <span className={styles.title}>Sort by</span>

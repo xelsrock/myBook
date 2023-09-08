@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import styles from './Search.module.scss';
 import { setSearchValue } from '../../redux/slices/filterSlice';
 
-const Search = () => {
+const Search: React.FC = () => {
   const dispatch = useDispatch();
 
   const [value, setValue] = React.useState('');
@@ -13,13 +13,13 @@ const Search = () => {
     dispatch(setSearchValue(value));
   };
 
-  const clickOnSearch = (event) => {
+  const clickOnSearch = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.code === 'Enter') {
       setInputClick();
     }
   };
 
-  const setInputChange = (event) => {
+  const setInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
   };
 
