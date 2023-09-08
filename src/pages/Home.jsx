@@ -25,6 +25,7 @@ const Home = () => {
   }, [searchValue, category, sortValue, startIndex]);
 
   const onLoadMore = () => {
+    window.scrollTo(0, 0);
     dispatch(setStartIndex());
   };
 
