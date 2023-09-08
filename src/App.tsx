@@ -7,7 +7,7 @@ import Home from './pages/Home';
 import MainLayout from './layouts/MainLoyout';
 import BookPage from './pages/BookPage';
 
-function App() {
+const App: React.FC = () => {
   return (
     <Routes>
       <Route path='/' element={<MainLayout />}>
