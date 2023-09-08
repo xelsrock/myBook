@@ -3,11 +3,11 @@ import React from 'react';
 import styles from './CardBook.module.scss';
 import { Link } from 'react-router-dom';
 
-const CardBook = ({ volumeInfo }) => {
+const CardBook = ({ id, volumeInfo }) => {
   return (
     <div className={styles.root}>
       <div className={styles.cardImg}>
-        <Link to="bookpage">
+        <Link to={`/bookpage/${id}`}>
           <img
             src={volumeInfo.imageLinks?.smallThumbnail || '../img/bookNotFound.jpg'}
             alt={'Books cover'}
