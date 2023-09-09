@@ -65,6 +65,7 @@ const booksSlice = createSlice({
         state.status = Status.SUCCESS;
       })
       .addCase(fetchBooksAsync.rejected, (state) => {
+        alert('Произошла ошибка при получении данных с сервера :(');
         state.status = Status.ERROR;
         state.bookItems = [];
       });
