@@ -50,18 +50,21 @@ const booksSlice = createSlice({
     setStartIndex(state) {
       state.startIndex += 30;
     },
+    resetStartIndex(state) {
+      state.startIndex = 0;
+    },
+    resetBookItems(state) {
+      state.bookItems = [];
+    }
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchBooksAsync.pending, (state) => {
         state.status = Status.LOADING;
-        state.bookItems = [];
       })
       .addCase(fetchBooksAsync.fulfilled, (state, action: any) => {
-        state.bookItems = action.payload.items;        
-
+        state.bookItems = [...state.bookItems, ...action.payload.items];
         state.totalItems = action.payload.totalItems;
-
         state.status = Status.SUCCESS;
       })
       .addCase(fetchBooksAsync.rejected, (state) => {
@@ -74,6 +77,6 @@ const booksSlice = createSlice({
 
 export const selectBooksData = (state: RootState) => state.booksSlice;
 
-export const { setStartIndex } = booksSlice.actions;
+export const { setStartIndex, resetStartIndex, resetBookItems } = booksSlice.actions;
 
 export default booksSlice.reducer;

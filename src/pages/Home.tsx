@@ -18,7 +18,6 @@ const Home: React.FC = () => {
 
   const getBooks = () => {
     const categories = `${category !== 'all' ? `+subject:${category}` : ''}`;
-
     dispatch(fetchBooksAsync({ searchValue, categories, sortValue, startIndex }));
   };
 
@@ -27,7 +26,6 @@ const Home: React.FC = () => {
   }, [searchValue, category, sortValue, startIndex]);
 
   const onLoadMore = () => {
-    window.scrollTo(0, 0);
     dispatch(setStartIndex());
   };
 
